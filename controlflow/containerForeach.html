@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Knockout Exercise</title>
+		<script src="../js/knockout3.1.0.js"></script>
+	</head>
+	<body>
+		<ul>
+		    <li class="header">Header item</li>
+		    <!-- ko foreach: myItems -->
+		        <li>Item <span data-bind="text: $data"></span></li>
+		    <!-- /ko -->
+		</ul>
+
+		<ul data-bind="foreach: ['cats', 'dogs', 'fish']">
+		    <li>The value is <span data-bind="text: $data"></span></li>
+		</ul>
+		
+		<script type="text/javascript">
+		    ko.applyBindings({
+		        myItems: [ 'A', 'B', 'C' ]
+		    });
+		</script>
+	</body>
+</html>

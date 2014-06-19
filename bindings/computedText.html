@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout Exercise</title>
+	<script src="../js/knockout3.1.0.js"></script>
+
+</head>
+<body>
+	The item is <span data-bind="text: priceRating"></span> today.
+	 
+	The item is <span data-bind="text: price() > 50 ? 'expensive' : 'affordable'"></span> today.
+
+	<script type="text/javascript">
+	    var viewModel = {
+	        price: ko.observable(24.95)
+	    };
+	    viewModel.priceRating = ko.computed(function() {
+	        return this.price() > 50 ? "expensive" : "affordable";
+	    }, viewModel);
+		ko.applyBindings(viewModel);
+	</script>
+
+
+</body>
+</html>

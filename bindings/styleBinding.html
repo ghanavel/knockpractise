@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Knockout Exercise</title>
+		<script src="../js/knockout3.1.0.js"></script>
+	</head>
+	<body>
+		<div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'black' }">
+		   Profit Information
+		</div>
+
+		<script type="text/javascript">
+		    var viewModel = {
+		        currentProfit: ko.observable(150000) // Positive value, so initially black
+		    };
+		    viewModel.currentProfit(-50); // Causes the DIV's contents to go red
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>

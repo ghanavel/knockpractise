@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout Exercise</title>
+	<script src="../js/knockout3.1.0.js"></script>
+
+</head>
+<body>
+	Today's message is: <span data-bind="text: myMessage"></span>
+	 
+	<script type="text/javascript">
+	    var viewModel = {
+	        myMessage: ko.observable() // Initially blank
+	    };
+	    ko.applyBindings(viewModel);
+	    viewModel.myMessage("Hello, world!"); // Text appears
+	</script>
+
+
+</body>
+</html>

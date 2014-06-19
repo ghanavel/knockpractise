@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Knockout Exercise</title>
+		<script src="../js/jquery1.11.js"></script>
+		<script src="../js/jquerycolor2.1.2.js"></script>
+		
+		
+		<script src="../js/knockout3.1.0.js"></script>
+	</head>
+	<body>
+		<ul data-bind="foreach: { data: myItems, afterAdd: yellowFadeIn }">
+		    <li data-bind="text: $data"></li>
+		</ul>
+		 
+		<button data-bind="click: addItem">Add</button>
+		
+		<script type="text/javascript">
+		    ko.applyBindings({
+		        myItems: ko.observableArray([ 'A', 'B', 'C' ]),
+		        yellowFadeIn: function(element, index, data) {
+		        	
+		            $(element).filter("li")
+		                      .animate({ backgroundColor: 'yellow' }, 200)
+		                      .animate({ backgroundColor: 'white' }, 800);
+		        },
+		        addItem: function() { this.myItems.push('New item'); }
+		    });
+		</script>
+	</body>
+</html>

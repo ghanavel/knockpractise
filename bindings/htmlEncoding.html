@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout Exercise</title>
+	<script src="../js/knockout3.1.0.js"></script>
+
+</head>
+<body>
+	<div>Text Binding: <span data-bind="text: myMessage"></span> </div>
+	<div>HTML Binding: <span data-bind="html: myMessage"></span> </div>
+	<div>HTML Binding: <span data-bind="text: name"></span> </div>
+	 
+	<!-- Using “text” without a container element-->
+
+	<select data-bind="foreach: items">
+	    <option>Item <span data-bind="text: name"></span></option>
+	</select>	
+
+	<select data-bind="foreach: items">
+	    <option>Item <!--ko text: name--><!--/ko--></option>
+	</select>	
+
+
+
+
+
+	<script type="text/javascript">
+	    var viewModel = {
+	        myMessage:ko.observable(), // initially blank
+			name:ko.observable("ghana")
+	    };
+		viewModel.myMessage("<i>Hello, world!</i>");
+		ko.applyBindings(viewModel);
+	</script>
+
+
+</body>
+</html>
